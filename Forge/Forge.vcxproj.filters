@@ -19,6 +19,10 @@
     <ClInclude Include="src\Forge\Log.h">
       <Filter>Forge</Filter>
     </ClInclude>
+    <ClInclude Include="src\Forge\Events\Event.h" />
+    <ClInclude Include="src\Forge\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Forge\Events\KeyEvent.h" />
+    <ClInclude Include="src\Forge\Events\MouseEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Forge\Application.cpp">

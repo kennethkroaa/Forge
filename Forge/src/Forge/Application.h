@@ -1,10 +1,14 @@
 #pragma once
 
 #include "Core.h"
+#include "Events/Event.h"
 
-namespace Forge {
+namespace 
+Forge 
+{
 	class FORGE_API 
-	Application {
+	Application 
+	{
 	public:
 		Application();
 		virtual ~Application();

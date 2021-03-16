@@ -4,10 +4,13 @@
 
 #include "Core.h"
 #include "spdlog/spdlog.h"
+#include "spdlog/fmt/ostr.h"
 
-namespace Forge {
+namespace 
+Forge 
+{
 	class FORGE_API
-	Log
+	Log 
 	{
 	public:
 		static void Init();
