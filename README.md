@@ -1,2 +1,1 @@
-# Forge
-![Forge](https://i.imgur.com/byA6wtu.png)
+# ![Forge](https://i.imgur.com/byA6wtu.png)
