@@ -4,6 +4,9 @@
     <Filter Include="Forge">
       <UniqueIdentifier>{1884300D-8498-58BE-4D1A-FC1DB9ED54EF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Forge\Events">
+      <UniqueIdentifier>{FCA4953A-E807-25DF-918D-5D957DCFF061}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Forge.h" />
@@ -16,13 +19,22 @@
     <ClInclude Include="src\Forge\EntryPoint.h">
       <Filter>Forge</Filter>
     </ClInclude>
+    <ClInclude Include="src\Forge\Events\ApplicationEvent.h">
+      <Filter>Forge\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Forge\Events\Event.h">
+      <Filter>Forge\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Forge\Events\KeyEvent.h">
+      <Filter>Forge\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Forge\Events\MouseEvent.h">
+      <Filter>Forge\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Forge\Log.h">
       <Filter>Forge</Filter>
     </ClInclude>
-    <ClInclude Include="src\Forge\Events\Event.h" />
-    <ClInclude Include="src\Forge\Events\ApplicationEvent.h" />
-    <ClInclude Include="src\Forge\Events\KeyEvent.h" />
-    <ClInclude Include="src\Forge\Events\MouseEvent.h" />
+    <ClInclude Include="src\forgepch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Forge\Application.cpp">
@@ -31,5 +43,6 @@
     <ClCompile Include="src\Forge\Log.cpp">
       <Filter>Forge</Filter>
     </ClCompile>
+    <ClCompile Include="src\forgepch.cpp" />
   </ItemGroup>
 </Project>

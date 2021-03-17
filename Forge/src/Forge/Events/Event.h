@@ -3,9 +3,6 @@
 
 #include "Forge/Core.h"
 
-#include <string>
-#include <functional>
-
 namespace
 Forge {
 	enum class

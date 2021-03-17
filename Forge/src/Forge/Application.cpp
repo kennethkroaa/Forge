@@ -1,3 +1,4 @@
+#include "forgepch.h"
 #include "Application.h"
 
 #include "Forge/Events/ApplicationEvent.h"
