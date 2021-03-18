@@ -46,7 +46,7 @@ Forge
 		virtual std::string toString() const { return getName(); }
 
 		inline bool isInCategory(EventCategory category) {
-			return getCategoryFlags() & category;
+			return getCategoryFlags()& category;
 		}
 	protected:
 		//handle events to be able to stop propagation
@@ -66,7 +66,7 @@ Forge
 		template<typename T>
 		bool dispatch(eventFn<T> func)
 		{
-			if (event.GetEventType() == T::GetStaticType())
+			if (event.getEventType() == T::getStaticType())
 			{
 				event.handled = func(*(T*)&event);
 				return true;
