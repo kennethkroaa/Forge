@@ -29,10 +29,13 @@ Forge
 		EventCategoryMouseButton =	BIT(4)
 	};
 
+	/* Macro to easily define event types 
+	   ## is for concatenation, # is for stringification */
 	#define EVENT_CLASS_TYPE(type) static EventType getStaticType() { return EventType::##type; }\
 								   virtual EventType getEventType() const override { return getStaticType(); }\
 							       virtual const char* getName() const override { return #type; }
 
+	/* Macro to easily define event categories */
 	#define EVENT_CLASS_CATEGORY(category) virtual int getCategoryFlags() const override { return category; }
 
 	class FORGE_API
