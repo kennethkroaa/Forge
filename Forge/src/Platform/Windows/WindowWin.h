@@ -13,30 +13,30 @@ namespace
 		WindowWin(const WindowProps& props);
 		virtual ~WindowWin();
 
-		void OnUpdate() override;
+		void onUpdate() override;
 
-		inline unsigned int GetHeight() const override { return m_Data.Width; }
-		inline unsigned int GetWidth() const override { return m_Data.Height; }
+		inline unsigned int getHeight() const override { return data.width; }
+		inline unsigned int getWidth() const override { return data.height; }
 
 		//Window attributes
-		inline void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
-		void SetVSync(bool enabled) override;
-		bool IsVSync() const override;
+		inline void setEventCallback(const eventCallbackFn& callback) override { data.eventCallback = callback; }
+		void setVSync(bool enabled) override;
+		bool isVSync() const override;
 	private:
-		virtual void Init(const WindowProps& props);
-		virtual void Shutdown();
+		virtual void init(const WindowProps& props);
+		virtual void shutdown();
 	private:
-		GLFWwindow* m_Window;
+		GLFWwindow* window;
 
 		struct WindowData
 		{
-			std::string Title;
-			unsigned int Width, Height;
-			bool VSync;
+			std::string title;
+			unsigned int width, height;
+			bool vSync;
 
-			EventCallbackFn EventCallback;
+			eventCallbackFn eventCallback;
 		};
 
-		WindowData m_Data;
+		WindowData data;
 	};
 }

@@ -4,29 +4,30 @@
 #include "Event.h"
 
 namespace
-	Forge
+Forge
 {
 	class FORGE_API
 	WindowResizeEvent: public Event
 	{
 	public:
-		WindowResizeEvent(unsigned int width, unsigned int height)
-			: m_Width(width), m_Height(height) {}
+		WindowResizeEvent(
+			unsigned int width, unsigned int height
+		): width(width), height(height) {}
 
-		inline unsigned int GetWidth() const { return m_Width; }
-		inline unsigned int GetHeight() const { return m_Height; }
+		inline unsigned int getWidth() const { return width; }
+		inline unsigned int getHeight() const { return height; }
 
-		std::string ToString() const override
+		std::string toString() const override
 		{
 			std::stringstream ss;
-			ss << "WindowResizeEvent: (" << m_Width << ", " << m_Height << ")";
+			ss << "WindowResizeEvent: (" << width << ", " << height << ")";
 			return ss.str();
 		}
 
 		EVENT_CLASS_TYPE(WindowResize)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	private:
-		unsigned int m_Width, m_Height;
+		unsigned int width, height;
 	};
 
 	class FORGE_API

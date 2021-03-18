@@ -9,48 +9,52 @@ Forge
 	KeyEvent: public Event
 	{
 	public:
-		inline int GetKeyCode() const { return m_KeyCode; }
+		inline int getKeyCode() const { return keyCode; }
 
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 	protected:
-		KeyEvent(int keycode)
-			: m_KeyCode(keycode) {}
+		KeyEvent(
+			int keycode
+		): keyCode(keycode) {}
 
-		int m_KeyCode;
+		int keyCode;
 	};
 
 	class FORGE_API
 	KeyPressedEvent: public KeyEvent
 	{
 	public:
-		KeyPressedEvent(int keycode, int repeatCount)
-			: KeyEvent(keycode), m_RepeatCount(repeatCount) {}
+		KeyPressedEvent(
+			int keycode, 
+			int repeatCount
+		): KeyEvent(keycode), repeatCount(repeatCount) {}
 
-		inline int GetRepeatCount() const { return m_RepeatCount; }
+		inline int getRepeatCount() const { return repeatCount; }
 
-		std::string ToString() const override
+		std::string toString() const override
 		{
 			std::stringstream ss;
-			ss << "KeyPressedEvent: " << m_KeyCode << " (" << m_RepeatCount << " repeats)";
+			ss << "KeyPressedEvent: " << keyCode << " (" << repeatCount << " repeats)";
 			return ss.str();
 		}
 
 		EVENT_CLASS_TYPE(KeyPressed)
 	private:
-		int m_RepeatCount;
+		int repeatCount;
 	};
 
 	class FORGE_API
 	KeyReleasedEvent: public KeyEvent
 	{
 	public:
-		KeyReleasedEvent(int keycode)
-			: KeyEvent(keycode) {}
+		KeyReleasedEvent(
+			int keycode
+		): KeyEvent(keycode) {}
 
-		std::string ToString() const override
+		std::string toString() const override
 		{
 			std::stringstream ss;
-			ss << "KeyReleasedEvent: " << m_KeyCode;
+			ss << "KeyReleasedEvent: " << keyCode;
 			return ss.str();
 		}
 

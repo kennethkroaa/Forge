@@ -14,14 +14,14 @@ Forge
 		Application();
 		virtual ~Application();
 
-		void Run();
+		void run();
 	private:
-		std::unique_ptr<Window> m_Window;
-		bool m_Running = true;
+		std::unique_ptr<Window> window;
+		bool running = true;
 	};
 
 	//To be defined in client
-	Application* CreateApplication();
+	Application* createApplication();
 }
 
 

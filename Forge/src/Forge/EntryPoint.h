@@ -3,7 +3,7 @@
 #ifdef FORGE_PLATFORM_WINDOWS
 
 extern 
-Forge::Application* Forge::CreateApplication();
+Forge::Application* Forge::createApplication();
 
 int 
 main(int argc, char** argv) 
@@ -11,8 +11,8 @@ main(int argc, char** argv)
 	Forge::Log::Init();
 	FORGE_CORE_WARN("Initialized sdplog");
 
-	auto app = Forge::CreateApplication();
-	app->Run();
+	auto app = Forge::createApplication();
+	app->run();
 	delete app;
 }
 

@@ -11,6 +11,6 @@ public:
 	}
 };
 
-Forge::Application* Forge::CreateApplication() {
+Forge::Application* Forge::createApplication() {
 	return new Sandbox();
 }

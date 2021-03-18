@@ -4,70 +4,70 @@
 namespace
 Forge
 {
-	static bool s_GLFWInitialized = false;
+	static bool GLFWInitialized = false;
 
 	Window*
-	Window::Create(const WindowProps& props)
+	Window::create(const WindowProps& props)
 	{
 		return new WindowWin(props);
 	}
 
 	WindowWin::WindowWin(const WindowProps& props)
 	{
-		Init(props);
+		init(props);
 	}
 
 	WindowWin::~WindowWin()
 	{
-		Shutdown();
+		shutdown();
 	}
 
 	void
-	WindowWin::Init(const WindowProps& props)
+	WindowWin::init(const WindowProps& props)
 	{
-		m_Data.Title = props.Title;
-		m_Data.Width = props.Width;
-		m_Data.Height = props.Height;
+		data.title = props.title;
+		data.width = props.width;
+		data.height = props.height;
 
-		FORGE_CORE_INFO("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
+		FORGE_CORE_INFO("Creating window {0} ({1}, {2})", props.title, props.width, props.height);
 
-		if (!s_GLFWInitialized)
+		if (!GLFWInitialized)
 		{
 			int success = glfwInit();
 			FORGE_CORE_ASSERT(success, "Could not initialize GLFW!")
 
-				s_GLFWInitialized = true;
+			GLFWInitialized = true;
 		}
 
-		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, props.Title.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(m_Window);
-		glfwSetWindowUserPointer(m_Window, &m_Data);
-		SetVSync(true);
+		window = glfwCreateWindow((int)props.width, (int)props.height, props.title.c_str(), nullptr, nullptr);
+		glfwMakeContextCurrent(window);
+		glfwSetWindowUserPointer(window, &data);
+		setVSync(true);
 	}
 
 	void
-	WindowWin::Shutdown()
+	WindowWin::shutdown()
 	{
-		glfwDestroyWindow(m_Window);
+		glfwDestroyWindow(window);
 	}
 
 	void
-	WindowWin::OnUpdate()
+	WindowWin::onUpdate()
 	{
 		glfwPollEvents();
-		glfwSwapBuffers(m_Window);
+		glfwSwapBuffers(window);
 	}
 
 	void
-	WindowWin::SetVSync(bool enabled)
+	WindowWin::setVSync(bool enabled)
 	{
 		glfwSwapInterval(int(enabled));
-		m_Data.VSync = enabled;
+		data.vSync = enabled;
 	}
 
 	bool
-	WindowWin::IsVSync() const
+	WindowWin::isVSync() const
 	{
-		return m_Data.VSync;
+		return data.vSync;
 	}
 }

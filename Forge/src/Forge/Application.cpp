@@ -9,7 +9,7 @@ Forge
 {
 	Application::Application() 
 	{
-		m_Window = std::unique_ptr<Window>(Window::Create());
+		window = std::unique_ptr<Window>(Window::create());
 	}
 
 	Application::~Application() 
@@ -18,11 +18,11 @@ Forge
 	}
 
 	void 
-	Application::Run() 
+	Application::run() 
 	{
-		while (m_Running)
+		while (running)
 		{
-			m_Window->OnUpdate();
+			window->onUpdate();
 		}
 	}
 }
