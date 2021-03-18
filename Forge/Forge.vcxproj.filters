@@ -7,6 +7,12 @@
     <Filter Include="Forge\Events">
       <UniqueIdentifier>{FCA4953A-E807-25DF-918D-5D957DCFF061}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{61fdcbb0-e366-4ffe-a030-2a69fb5d271d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{54252869-c8ea-4e8f-9fb9-7663981c96f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Forge.h" />
@@ -34,7 +40,9 @@
     <ClInclude Include="src\Forge\Log.h">
       <Filter>Forge</Filter>
     </ClInclude>
+    <ClInclude Include="src\Window.h" />
     <ClInclude Include="src\forgepch.h" />
+    <ClInclude Include="src\Platform\Windows\WindowWin.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Forge\Application.cpp">
@@ -44,5 +52,6 @@
       <Filter>Forge</Filter>
     </ClCompile>
     <ClCompile Include="src\forgepch.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowWin.cpp" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 #pragma once
-#pragma once
 
+#include "forgepch.h"
 #include "Forge/Core.h"
 
 namespace

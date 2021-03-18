@@ -79,7 +79,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>forgepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>FORGE_PLATFORM_WINDOWS;FORGE_BUILD_DLL;FORGE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FORGE_PLATFORM_WINDOWS;FORGE_BUILD_DLL;FORGE_ENABLE_ASSERTS;FORGE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -101,7 +101,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>forgepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>FORGE_PLATFORM_WINDOWS;FORGE_BUILD_DLL;FORGE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FORGE_PLATFORM_WINDOWS;FORGE_BUILD_DLL;FORGE_ENABLE_ASSERTS;FORGE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -127,7 +127,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>forgepch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>FORGE_PLATFORM_WINDOWS;FORGE_BUILD_DLL;FORGE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>FORGE_PLATFORM_WINDOWS;FORGE_BUILD_DLL;FORGE_ENABLE_ASSERTS;FORGE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -158,6 +158,8 @@
     <ClInclude Include="src\Forge\Events\KeyEvent.h" />
     <ClInclude Include="src\Forge\Events\MouseEvent.h" />
     <ClInclude Include="src\Forge\Log.h" />
+    <ClInclude Include="src\Platform\Windows\WindowWin.h" />
+    <ClInclude Include="src\Window.h" />
     <ClInclude Include="src\forgepch.h" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +168,7 @@
     <ClCompile Include="src\forgepch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowWin.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

@@ -9,10 +9,7 @@ int
 main(int argc, char** argv) 
 {
 	Forge::Log::Init();
-	FORGE_CORE_WARN("Initialized log!");
-
-	int a = 5;
-	FORGE_INFO("Hello! Var={0}", a);
+	FORGE_CORE_WARN("Initialized sdplog");
 
 	auto app = Forge::CreateApplication();
 	app->Run();

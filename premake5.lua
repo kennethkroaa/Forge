@@ -67,7 +67,8 @@ project "Forge"
 		defines
 		{
 			"FORGE_PLATFORM_WINDOWS",
-			"FORGE_BUILD_DLL"
+			"FORGE_BUILD_DLL",
+			"FORGE_ENABLE_ASSERTS"
 		}
 
 		-- Output DLL to Sandbox
