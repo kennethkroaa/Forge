@@ -8,7 +8,7 @@ Forge::Application* Forge::createApplication();
 int 
 main(int argc, char** argv) 
 {
-	Forge::Log::Init();
+	Forge::Log::init();
 	FORGE_CORE_WARN("Initialized sdplog");
 
 	auto app = Forge::createApplication();
