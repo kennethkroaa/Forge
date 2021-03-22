@@ -48,6 +48,9 @@ Forge
 			ss << "MouseScrolledEvent: (" << getXOffset() << ", " << getYOffset() << ")";
 			return ss.str();
 		}
+
+		EVENT_CLASS_TYPE(MouseScrolled)
+		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
 	private:
 		float xOffset, yOffset;
 	};
@@ -58,6 +61,7 @@ Forge
 	public:
 		inline int getMouseButton() const { return button; }
 
+		EVENT_CLASS_TYPE(MouseButtonPressed)
 		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
 	protected:
 		MouseButtonEvent(
@@ -83,6 +87,7 @@ Forge
 		}
 
 		EVENT_CLASS_TYPE(MouseButtonPressed)
+		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
 	};
 
 	class FORGE_API
@@ -101,5 +106,6 @@ Forge
 		}
 
 		EVENT_CLASS_TYPE(MouseButtonReleased)
+		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
 	};
 }
