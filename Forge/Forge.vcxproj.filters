@@ -43,6 +43,8 @@
     <ClInclude Include="src\Window.h" />
     <ClInclude Include="src\forgepch.h" />
     <ClInclude Include="src\Platform\Windows\WindowWin.h" />
+    <ClInclude Include="src\Forge\Layer.h" />
+    <ClInclude Include="src\Forge\LayerStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Forge\Application.cpp">
@@ -53,6 +55,8 @@
     </ClCompile>
     <ClCompile Include="src\forgepch.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowWin.cpp" />
+    <ClCompile Include="src\Forge\Layer.cpp" />
+    <ClCompile Include="src\Forge\LayerStack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

@@ -79,14 +79,17 @@ project "Forge"
 
 	filter "configurations:Debug"
 		defines "FORGE_DEBUG"
+		buildoptions "/MDd"
 		symbols "On" -- Debug symbol table generation
 
 	filter "configurations:Release"
 		defines "FORGE_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "FORGE_DEBUG"
+		buildoptions "/MD"
 		optimize "On"
 
 project "Sandbox"
@@ -126,12 +129,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "FORGE_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "FORGE_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "FORGE_DEBUG"
+		buildoptions "/MD"
 		optimize "On"

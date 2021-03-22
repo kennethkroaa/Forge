@@ -51,7 +51,7 @@ Forge
 		inline bool isInCategory(EventCategory category) {
 			return getCategoryFlags()& category;
 		}
-	protected:
+
 		//handle events to be able to stop propagation
 		bool handled = false;
 	};

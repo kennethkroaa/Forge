@@ -149,6 +149,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Forge\LayerStack.h" />
+    <ClInclude Include="src\Forge\Layer.h" />
     <ClInclude Include="src\Forge.h" />
     <ClInclude Include="src\Forge\Application.h" />
     <ClInclude Include="src\Forge\Core.h" />
@@ -163,6 +165,8 @@
     <ClInclude Include="src\forgepch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Forge\LayerStack.cpp" />
+    <ClCompile Include="src\Forge\Layer.cpp" />
     <ClCompile Include="src\Forge\Application.cpp" />
     <ClCompile Include="src\Forge\Log.cpp" />
     <ClCompile Include="src\forgepch.cpp">

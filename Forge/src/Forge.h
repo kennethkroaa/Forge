@@ -2,6 +2,7 @@
 
 // For use by Forge applications
 #include "Forge/Application.h"
+#include "Forge/Layer.h"
 #include "Forge/Log.h"
 
 // Entry Point
