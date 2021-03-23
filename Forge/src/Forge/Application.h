@@ -7,6 +7,8 @@
 #include "Events/Event.h"
 #include "Forge/Events/ApplicationEvent.h"
 
+#include "Forge/ImGui/ImGuiLayer.h"
+
 namespace 
 Forge 
 {
@@ -30,9 +32,10 @@ Forge
 	private:
 		bool onWindowClose(WindowCloseEvent& event);
 
-		std::unique_ptr<Window> window;
+		Scope<Window> window;
 		bool running = true;
 		LayerStack layerStack;
+		ImGuiLayer* ImGuiOverlay;
 	private:
 		static Application* instance;
 	};

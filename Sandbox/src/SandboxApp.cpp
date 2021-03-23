@@ -8,7 +8,7 @@ public:
 
 	void onUpdate() override
 	{
-		FORGE_INFO("ExampleLayer::Update");
+		//FORGE_INFO("ExampleLayer::Update");
 	}
 
 	void onEvent(Forge::Event& event) override
@@ -21,7 +21,6 @@ class Sandbox : public Forge::Application {
 public:
 	Sandbox() {
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Forge::ImGuiLayer());
 	}
 
 	~Sandbox() {

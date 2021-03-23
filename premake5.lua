@@ -21,6 +21,8 @@ include "Forge/vendor/GLFW"
 include "Forge/vendor/glad"
 include "Forge/vendor/ImGui"
 
+startproject "Sandbox"
+
 project "Forge"
 	-- Destination directory for the generated project
 	location "Forge"

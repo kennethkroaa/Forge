@@ -18,6 +18,9 @@ Forge
 
 		window = std::unique_ptr<Window>(Window::create());
 		window->setEventCallback(BIND_EVENT_FN(onEvent));
+
+		ImGuiOverlay = new ImGuiLayer();
+		PushOverlay(ImGuiOverlay);
 	}
 
 	Application::~Application() 
@@ -46,9 +49,10 @@ Forge
 		// Required as overlays are last, and we want e.g. GUI to receive events first
 		for (auto it = layerStack.end(); it != layerStack.begin(); )
 		{
-			(*--it)->onEvent(event);
 			if (event.handled)
 				break;
+
+			(*--it)->onEvent(event);
 		}
 	}
 
