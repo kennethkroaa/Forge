@@ -21,6 +21,7 @@ class Sandbox : public Forge::Application {
 public:
 	Sandbox() {
 		PushLayer(new ExampleLayer());
+		PushOverlay(new Forge::ImGuiLayer());
 	}
 
 	~Sandbox() {

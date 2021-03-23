@@ -5,7 +5,7 @@
 #include <GLFW/glfw3.h>
 
 namespace
-	Forge
+Forge
 {
 	class WindowWin : public Window
 	{
@@ -22,6 +22,8 @@ namespace
 		inline void setEventCallback(const eventCallbackFn& callback) override { data.eventCallback = callback; }
 		void setVSync(bool enabled) override;
 		bool isVSync() const override;
+
+		virtual void* getNativeWindow() const { return window; }
 	private:
 		virtual void init(const WindowProps& props);
 		virtual void shutdown();

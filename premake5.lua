@@ -14,8 +14,12 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Forge/vendor/GLFW/include"
+IncludeDir["glad"] = "Forge/vendor/glad/include"
+IncludeDir["ImGui"] = "Forge/vendor/ImGui"
 
 include "Forge/vendor/GLFW"
+include "Forge/vendor/glad"
+include "Forge/vendor/ImGui"
 
 project "Forge"
 	-- Destination directory for the generated project
@@ -46,13 +50,17 @@ project "Forge"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	-- Dependency links
 	links
 	{
 		"GLFW",
+		"glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 
@@ -68,7 +76,8 @@ project "Forge"
 		{
 			"FORGE_PLATFORM_WINDOWS",
 			"FORGE_BUILD_DLL",
-			"FORGE_ENABLE_ASSERTS"
+			"FORGE_ENABLE_ASSERTS",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		-- Output DLL to Sandbox

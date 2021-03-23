@@ -5,5 +5,7 @@
 #include "Forge/Layer.h"
 #include "Forge/Log.h"
 
+#include "Forge/ImGui/ImGuiLayer.h"
+
 // Entry Point
 #include "Forge/EntryPoint.h"

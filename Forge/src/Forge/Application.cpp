@@ -2,15 +2,20 @@
 #include "Application.h"
 
 #include "Forge/Log.h"
-#include <gl/GL.h>
+#include <glad/gl.h>
 
 namespace 
 Forge 
 {
 	#define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
+	Application* Application::instance = nullptr;
+
 	Application::Application() 
 	{
+		FORGE_CORE_ASSERT(!instance, "Application already exists!");
+		instance = this;
+
 		window = std::unique_ptr<Window>(Window::create());
 		window->setEventCallback(BIND_EVENT_FN(onEvent));
 	}
@@ -23,19 +28,19 @@ Forge
 	void Application::PushLayer(Layer* layer)
 	{
 		layerStack.PushLayer(layer);
+		layer->onAttach();
 	}
 
 	void Application::PushOverlay(Layer* overlay)
 	{
 		layerStack.PushOverlay(overlay);
+		overlay->onAttach();
 	}
 
 	void Application::onEvent(Event& event) 
 	{
 		EventDispatcher dispatcher(event);
 		dispatcher.dispatch<WindowCloseEvent>(BIND_EVENT_FN(onWindowClose));
-
-		FORGE_CORE_TRACE("{0}", event);
 
 		// Go backward in layer stack
 		// Required as overlays are last, and we want e.g. GUI to receive events first
@@ -52,8 +57,6 @@ Forge
 	{
 		while (running)
 		{
-			glClearColor(1, 0, 1, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
 			window->onUpdate();
 
 			for (Layer* layer : layerStack)

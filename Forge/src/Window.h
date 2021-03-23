@@ -1,6 +1,7 @@
 #pragma once
 
 #include "forgepch.h"
+#include <sstream>
 
 #include "Forge/Core.h"
 #include "Forge/Events/event.h"
@@ -42,6 +43,8 @@ Forge
 		virtual void setVSync(bool enabled) = 0;
 		virtual bool isVSync() const = 0;
 
-		static Window* create(const WindowProps& props = WindowProps());
+		virtual void* getNativeWindow() const = 0;
+
+		static Scope<Window> create(const WindowProps& props = WindowProps());
 	};
 }

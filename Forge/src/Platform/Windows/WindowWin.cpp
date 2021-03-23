@@ -5,20 +5,17 @@
 #include <Forge/Events/MouseEvent.h>
 #include <Forge/Events/KeyEvent.h>
 
+#include <glad/gl.h>
+
 namespace
 Forge
 {
 	static bool GLFWInitialized = false;
 
-	static void GLFWErrorCallback(int error, const char* description)
+	static void 
+	GLFWErrorCallback(int error, const char* description)
 	{
 		FORGE_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
-	}
-
-	Window*
-	Window::create(const WindowProps& props)
-	{
-		return new WindowWin(props);
 	}
 
 	WindowWin::WindowWin(const WindowProps& props)
@@ -51,6 +48,9 @@ Forge
 
 		window = glfwCreateWindow((int)props.width, (int)props.height, props.title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(window);
+		int version = gladLoadGL(glfwGetProcAddress);
+		FORGE_CORE_ASSERT(version, "Failed to initialize glad");
+		FORGE_CORE_WARN("Loaded OpenGL {0}.{1}", GLAD_VERSION_MAJOR(version), GLAD_VERSION_MINOR(version));
 		glfwSetWindowUserPointer(window, &data);
 		setVSync(true);
 

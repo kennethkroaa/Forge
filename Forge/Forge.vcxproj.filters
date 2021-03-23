@@ -7,11 +7,14 @@
     <Filter Include="Forge\Events">
       <UniqueIdentifier>{FCA4953A-E807-25DF-918D-5D957DCFF061}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Forge\ImGui">
+      <UniqueIdentifier>{42AB01E3-AE60-7AD8-3755-74AFA30971DC}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
-      <UniqueIdentifier>{61fdcbb0-e366-4ffe-a030-2a69fb5d271d}</UniqueIdentifier>
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platform\Windows">
-      <UniqueIdentifier>{54252869-c8ea-4e8f-9fb9-7663981c96f3}</UniqueIdentifier>
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,28 +40,44 @@
     <ClInclude Include="src\Forge\Events\MouseEvent.h">
       <Filter>Forge\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Forge\ImGui\ImGuiLayer.h">
+      <Filter>Forge\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Forge\Layer.h">
+      <Filter>Forge</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Forge\LayerStack.h">
+      <Filter>Forge</Filter>
+    </ClInclude>
     <ClInclude Include="src\Forge\Log.h">
       <Filter>Forge</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowWin.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\Window.h" />
     <ClInclude Include="src\forgepch.h" />
-    <ClInclude Include="src\Platform\Windows\WindowWin.h" />
-    <ClInclude Include="src\Forge\Layer.h" />
-    <ClInclude Include="src\Forge\LayerStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Forge\Application.cpp">
       <Filter>Forge</Filter>
     </ClCompile>
+    <ClCompile Include="src\Forge\ImGui\ImGuiLayer.cpp">
+      <Filter>Forge\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Forge\Layer.cpp">
+      <Filter>Forge</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Forge\LayerStack.cpp">
+      <Filter>Forge</Filter>
+    </ClCompile>
     <ClCompile Include="src\Forge\Log.cpp">
       <Filter>Forge</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowWin.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Window.cpp" />
     <ClCompile Include="src\forgepch.cpp" />
-    <ClCompile Include="src\Platform\Windows\WindowWin.cpp" />
-    <ClCompile Include="src\Forge\Layer.cpp" />
-    <ClCompile Include="src\Forge\LayerStack.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>
