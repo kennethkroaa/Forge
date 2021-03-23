@@ -12,6 +12,10 @@
 	#error Forge only supports Windows!
 #endif
 
+#ifdef FORGE_DEBUG
+	#define FORGE_ENABLE_ASSERTS
+#endif
+
 #ifdef FORGE_ENABLE_ASSERTS
 	#define FORGE_ASSERT(x, ...) { if(!(x)) { FORGE_ERROR("Assertion failed: {0}", __VA_ARGS__); __debugbreak(); } }
 	#define FORGE_CORE_ASSERT(x, ...) { if(!(x)) { FORGE_CORE_ERROR("Assertion failed: {0}", __VA_ARGS__); __debugbreak(); } }

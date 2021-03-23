@@ -1,6 +1,7 @@
 workspace "Forge"
 	architecture "x64"
-	
+	startproject "Sandbox"
+
 	configurations
 	{
 		"Debug",
@@ -17,11 +18,12 @@ IncludeDir["GLFW"] = "Forge/vendor/GLFW/include"
 IncludeDir["glad"] = "Forge/vendor/glad/include"
 IncludeDir["ImGui"] = "Forge/vendor/ImGui"
 
-include "Forge/vendor/GLFW"
-include "Forge/vendor/glad"
-include "Forge/vendor/ImGui"
+group "Dependencies"
+	include "Forge/vendor/GLFW"
+	include "Forge/vendor/glad"
+	include "Forge/vendor/ImGui"
 
-startproject "Sandbox"
+group ""
 
 project "Forge"
 	-- Destination directory for the generated project
@@ -29,6 +31,7 @@ project "Forge"
 	-- A shared library or DLL
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
 	-- Destination directory for the compiled binary target
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -68,8 +71,6 @@ project "Forge"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		-- Sets <RuntimeLibrary> to "MultiThreaded"
-		staticruntime "On"
 		-- Target OS SDK
 		systemversion "latest"
 
@@ -78,35 +79,35 @@ project "Forge"
 		{
 			"FORGE_PLATFORM_WINDOWS",
 			"FORGE_BUILD_DLL",
-			"FORGE_ENABLE_ASSERTS",
 			"GLFW_INCLUDE_NONE"
 		}
 
 		-- Output DLL to Sandbox
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"
 		defines "FORGE_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On" -- Debug symbol table generation
 
 	filter "configurations:Release"
 		defines "FORGE_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "FORGE_DEBUG"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp" -- A console or command-line application
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -130,7 +131,6 @@ project "Sandbox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -140,15 +140,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "FORGE_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "FORGE_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "FORGE_DEBUG"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
